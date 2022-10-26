@@ -1,13 +1,21 @@
-For icons:
-https://www.flaticon.com/free-icons/logout
+ICON:
+    For icons:
+    https://www.flaticon.com/free-icons/logout
 
-Linking static
+LINKING STATIC FILES:
+    CSS: 
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/CSSFileName.css') }}" />
 
-CSS: 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/CSSFileName.css') }}" />
+    IMG: 
+        <img class="icon" src="{{ url_for('static', filename = 'icons/IconName.png') }}" alt="Name of icon">
 
-IMG: 
-    <img class="icon" src="{{ url_for('static', filename = 'icons/IconName.png') }}" alt="Name of icon">
+    JS: 
+        <script type="text/javascript" src="{{ url_for('static', filename = 'js/ScriptName.js') }}"></script>
 
-JS: 
-    <script type="text/javascript" src="{{ url_for('static', filename = 'js/ScriptName.js') }}"></script>
+NAVBAR USERNAME:
+    classroom.html: login
+    dashboard.html: user
+    gradeScale.html: user
+    studentCreate.html: user
+    studentEdit.html: user
+    studentShow.html: user

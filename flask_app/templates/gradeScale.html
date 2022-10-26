@@ -13,26 +13,23 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
     <title>Grade Scale</title>
 </head>
-<body class="background-f6">
-    <nav class="nav">
-        <h1 class="nav-title text-black text-white">
+<body>
+    <nav class="navbar">
+        <span class="nav-item welcome-text">
             Welcome, <span class="text-upper"> {{user.first_name}}! </span>
-        </h1>
-
-        <a class="text-white btn" href="/home">
-            <img class="icon home-icon-mb" src="{{ url_for('static', filename = 'icons/HomeIcon.png') }}" alt="Home icon">
-            Home
-        </a>
-
-        <a class="text-white btn " href="/student/new">
-            <img class="icon add-icon-mb" src="{{ url_for('static', filename = 'icons/Add.png') }}" alt="Add icon">
-            Add Student
-        </a>
-        
-        <a href="/logout" class="btn text-white margin-right-3">
-        <img class="icon" src="{{ url_for('static', filename = 'icons/LogoutIcon.png') }}" alt="logout icon">
-        Logout
-        </a>
+        </span>
+            <a class="btn nav-item" href="/home">
+                <img class="icon home-icon-mb" src="{{ url_for('static', filename = 'icons/HomeIcon.png') }}" alt="Home icon">
+                <span class="nav-item mobile-size-nav">Home</span>
+            </a>
+            <a class="btn nav-item" href="/student/new">
+                <img class="icon add-icon-mb" src="{{ url_for('static', filename = 'icons/Add.png') }}" alt="Add icon">
+                <span class="mobile-size-nav">Add Student</span>
+            </a>
+            <a href="/logout" class="btn nav-item float-end">
+                <img class="icon" src="{{ url_for('static', filename = 'icons/LogoutIcon.png') }}" alt="logout icon">
+                <span class="mobile-size-nav">Logout</span>
+            </a>
     </nav>
     
     <div>
