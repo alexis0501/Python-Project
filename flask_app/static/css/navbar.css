@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.nav{
+    background-color: #3F8CBB;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-title{
+    color:rgb(255, 255, 255);
+    margin-left: 2%;
+}
+
+.margin-right-3{
+    margin-right: 3%;
+}
+
+.background-f6{
+    background-color: #f6f6f6 ;
+}
+
+.icon{
+    height: 20px;
+}
+
+.text-upper{
+    text-transform: capitalize;
+}
+
+.add-icon-mb{
+    margin-bottom: 3px;
+}
+
+.home-icon-mb{
+    margin-bottom: 5px;
+}

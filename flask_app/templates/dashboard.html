@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- *Navbar CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}" />
+    <!-- *Dashboard CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css') }}" />
+    <!-- *Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+</head>
+
+<body class="background-f6">
+    <nav class="nav">
+        <h1 class="nav-title text-black text-white">
+            Welcome, <span class="text-upper"> {{user.first_name}}! </span>
+        </h1>
+
+        <a class="text-white btn" href="/home">
+            <img class="icon home-icon-mb" src="{{ url_for('static', filename = 'icons/HomeIcon.png') }}" alt="Home icon">
+            Home
+        </a>
+
+        <a class="text-white btn " href="/student/new">
+            <img class="icon add-icon-mb" src="{{ url_for('static', filename = 'icons/Add.png') }}" alt="Add icon">
+            Add Student
+        </a>
+        
+        <a href="/logout" class="btn text-white margin-right-3">
+        <img class="icon" src="{{ url_for('static', filename = 'icons/LogoutIcon.png') }}" alt="logout icon">
+        Logout
+        </a>
+    </nav>
+
+    <div>
+        <div>
+            <div class="container">
+                <table class="table table-hover mt-5">
+                    <thead>
+                        <tr>
+                            <th scope="col"> <span>Class #</span></th>
+                            <th scope="col"> <span class="text-success">Instructor:</span> <span class="text-secondary">First Name</span> </th>
+                            <th scope="col"> <span class="text-success">Instructor:</span> <span class="text-secondary">Last Name</span> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for user in users %}
+                        <tr>
+                            <th scope="row">{{user['id']}}</th>
+                            <td class="text-upper"> 
+                                <a class="text-success" href="/show/classroom/{{user['id']}}">
+                                    <img class="icon" src="{{ url_for('static', filename = 'icons/instructor.png') }}" alt="instructor icon">
+                                    {{user['first_name']}}
+                                </a>  
+                            </td>
+                            <td class="text-upper">{{user['last_name']}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>   
+</body>
+</html>

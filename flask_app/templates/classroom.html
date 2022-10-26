@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <!-- *Navbar CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}" />
+    <!-- *Dashboard CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/classroom.css') }}" />
+    <!-- *Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <title>Classroom</title>
+</head>
+<body class="background-f6">
+    <nav class="nav">
+        <h1 class="nav-title text-black text-white">
+            Welcome, <span class="text-upper"> {{login.first_name}}! </span>
+        </h1>
+
+        <a class="text-white btn" href="/home">
+            <img class="icon home-icon-mb" src="{{ url_for('static', filename = 'icons/HomeIcon.png') }}" alt="Home icon">
+            Home
+        </a>
+
+        <a class="text-white btn" href="/student/new">
+            <img class="icon add-icon-mb" src="{{ url_for('static', filename = 'icons/Add.png') }}" alt="Add icon">
+            Add Student
+        </a>
+        
+        <a href="/logout" class="btn text-white margin-right-3">
+        <img class="icon" src="{{ url_for('static', filename = 'icons/LogoutIcon.png') }}" alt="logout icon">
+        Logout
+        </a>
+    </nav>
+    <div class="container">
+        <h1>Viewing, <span class="text-upper text-bold"><b>{{user.first_name}}'s</b> </span>classroom</h1>
+        <table  class="table table-hover mt-5">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Grade</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in user.students %}
+                <tr>
+                    <td> 
+                        <a href="/student/{{student.id}}" class="link-secondary text-upper">
+                            <img class="icon" src="{{ url_for('static', filename = 'icons/Student.png') }}" alt="Student icon">
+                            {{student['student_first_name']}}
+                        </a>  
+                    </td>
+                    <td class="text-upper">{{student['student_last_name']}}</td>
+                    <td>
+                        <img class="icon" src="{{ url_for('static', filename = 'icons/Grade.png') }}" alt="grade icon">
+                        <a href="/student/grade">{{student['grade']}}</a>
+                    </td>
+                    <td> 
+                        <a href="/student/{{student.id}}/edit" class="btn btn-outline-secondary">
+                            <img class="icon" src="{{ url_for('static', filename = 'icons/Edit.png') }}" alt="Edit icon">
+                            Edit
+                        </a> 
+                    </td>
+                    <td> 
+                        <a href="/student/{{student.id}}/delete" class="btn btn-outline-danger">
+                            <img class="icon" src="{{ url_for('static', filename = 'icons/Delete.png') }}" alt="Delete icon">
+                            Delete
+                        </a> 
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

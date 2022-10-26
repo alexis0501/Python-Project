@@ -1,0 +1,13 @@
+For icons:
+https://www.flaticon.com/free-icons/logout
+
+Linking static
+
+CSS: 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/CSSFileName.css') }}" />
+
+IMG: 
+    <img class="icon" src="{{ url_for('static', filename = 'icons/IconName.png') }}" alt="Name of icon">
+
+JS: 
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/ScriptName.js') }}"></script>

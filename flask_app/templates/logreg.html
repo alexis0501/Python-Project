@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Register</title>
+    <!-- !Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+        <h1 class="text-center">Login and Registration</h1>
+        <div class="d-flex">
+            <form class="container container-primaryçç" action="/register" method="POST">
+                <h2 class="text-center">Register Here</h2>
+                
+                <label for="first_name">First Name:</label>
+                <input class="form-control" type="text" name="first_name" id="first_name">
+                <label for="last_name">Last Name:</label>
+                <input class="form-control" type="text" name="last_name" id="last_name">
+                <label for="email">Email:</label>
+                <input class="form-control" type="email" name="email" id="email">
+                <label for="password">Password:</label>
+                <input class="form-control" type="password" name="password" id="password">
+                <label for="confirm_password">Confirm Password:</label>
+                <input class="form-control" type="password" name="confirm_password" id="confirm_password">
+                <button class="btn btn-primary mt-3">Register</button>
+            </form>
+            <form class="container" action="/login" method="POST">
+                
+                <h2 class="text-center">Login Here</h2>
+                
+                <label for="email">Email:</label>
+                <input class="form-control" type="email" name="email" id="email">
+                <label for="password">Password:</label>
+                <input class="form-control" type="password" name="password" id="password">
+                <button class="btn btn-primary mt-3">Login</button>
+            </form>
+        </div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="text-danger">{{message}}</hp>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

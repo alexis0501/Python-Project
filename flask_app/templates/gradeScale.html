@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- *Navbar CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}" />
+    <!-- *Grade Scale CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/gradeScale.css') }}" />
+    <!-- *Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <title>Grade Scale</title>
+</head>
+<body class="background-f6">
+    <nav class="nav">
+        <h1 class="nav-title text-black text-white">
+            Welcome, <span class="text-upper"> {{user.first_name}}! </span>
+        </h1>
+
+        <a class="text-white btn" href="/home">
+            <img class="icon home-icon-mb" src="{{ url_for('static', filename = 'icons/HomeIcon.png') }}" alt="Home icon">
+            Home
+        </a>
+
+        <a class="text-white btn " href="/student/new">
+            <img class="icon add-icon-mb" src="{{ url_for('static', filename = 'icons/Add.png') }}" alt="Add icon">
+            Add Student
+        </a>
+        
+        <a href="/logout" class="btn text-white margin-right-3">
+        <img class="icon" src="{{ url_for('static', filename = 'icons/LogoutIcon.png') }}" alt="logout icon">
+        Logout
+        </a>
+    </nav>
+    
+    <div>
+        <h1 class="text-center mt-5">Grading System</h1>
+    </div>
+    <div class="container text-center">
+        <h3 class="text-primary">
+            <img class="icon" src="{{ url_for('static', filename = 'icons/AGrade.png') }}" alt="A icon">
+            A = 90% or higher
+        </h3>
+        <h3 class="text-lime">
+            <img class="icon" src="{{ url_for('static', filename = 'icons/BGrade.png') }}" alt="B icon">
+            B = 80% to 89%
+        </h3>
+        <h3 class="text-warning">
+            <img class="icon" src="{{ url_for('static', filename = 'icons/CGrade.png') }}" alt="C icon">
+            C = 70% to 79%
+        </h3>
+        <h3 class="text-orange">
+            <img class="icon" src="{{ url_for('static', filename = 'icons/DGrade.png') }}" alt="D icon">
+            D = 60% to 69%
+        </h3>
+        <h3 class="text-danger">
+            <img class="icon" src="{{ url_for('static', filename = 'icons/FGrade.png') }}" alt="F icon">
+            F = 59% or lower
+        </h3>
+    </div>
+</body>
+</html>
