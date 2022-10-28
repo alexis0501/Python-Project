@@ -10,41 +10,48 @@
 </head>
 <body>
     <div>
-        <h1 class="text-center">Login and Registration</h1>
-        <div class="d-flex">
-            <form class="container container-primaryçç" action="/register" method="POST">
-                <h2 class="text-center">Register Here</h2>
+        <h1 class="text-center">Login and Registration Page</h1>
+        <div class="container d-flex">
+            <form class="container border border-secondary border-3 rounded pt-2 border-opacity-25 ms-2" action="/register" method="POST">
+                <h2 class="text-center border-bottom border-dark">Register Here</h2>
+                <label class="mt-1" for="first_name">First Name:</label>
+                    <input class="form-control" type="text" name="first_name" id="first_name">
+                <label class="mt-3" for="last_name">Last Name:</label>
+                    <input class="form-control" type="text" name="last_name" id="last_name">
+                <label class="mt-3" for="email">Email:</label>
+                    <input class="form-control" type="email" name="email" id="email">
                 
-                <label for="first_name">First Name:</label>
-                <input class="form-control" type="text" name="first_name" id="first_name">
-                <label for="last_name">Last Name:</label>
-                <input class="form-control" type="text" name="last_name" id="last_name">
-                <label for="email">Email:</label>
-                <input class="form-control" type="email" name="email" id="email">
-                <label for="password">Password:</label>
-                <input class="form-control" type="password" name="password" id="password">
-                <label for="confirm_password">Confirm Password:</label>
-                <input class="form-control" type="password" name="confirm_password" id="confirm_password">
-                <button class="btn btn-primary mt-3">Register</button>
+                <label class="mt-3" for="password">Password:</label>
+                    <input class="form-control" type="password" name="password" id="RegPassword">
+                    <input type="checkbox" onclick="regPassword()"> <span>Show Password</span>
+                <br/>
+                <label class="mt-3" for="confirm_password">Confirm Password:</label>
+                    <input class="form-control" type="password" name="confirm_password" id="RegConPassword">
+                    <input type="checkbox" onclick="regConfPassword()"> <span>Show Password</span>
+                
+                
+                
+                
+                    <button class="btn btn-primary mt-3 w-100">Register</button>
             </form>
-            <form class="container" action="/login" method="POST">
-                
-                <h2 class="text-center">Login Here</h2>
-                
-                <label for="email">Email:</label>
-                <input class="form-control" type="email" name="email" id="email">
-                <label for="password">Password:</label>
-                <input class="form-control" type="password" name="password" id="password">
-                <button class="btn btn-primary mt-3">Login</button>
+            <form class="container border border-secondary border-3 rounded pt-2 border-opacity-25 ms-2" action="/login" method="POST">
+                <h2 class="text-center border-bottom border-dark">Login Here</h2>
+                <label class="mt-1" for="email">Email:</label>
+                    <input class="form-control" type="email" name="email" id="email">
+                <label class="mt-3" for="password">Password:</label>
+                    <input class="form-control" type="password" name="password" id="LoginPassword">
+                    <input type="checkbox" onclick="logPassword()"> <span>Show Password</span>
+                <button class="btn btn-primary mt-3 w-100">Login</button>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="text-danger">{{message}}</hp>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
             </form>
         </div>
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <p class="text-danger">{{message}}</hp>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
     </div>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/LogReg.js') }}"></script>
 </body>
 </html>
