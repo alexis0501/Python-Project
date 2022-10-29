@@ -11,11 +11,3 @@ LINKING STATIC FILES:
 
     JS: 
         <script type="text/javascript" src="{{ url_for('static', filename = 'js/ScriptName.js') }}"></script>
-
-NAVBAR USERNAME:
-    classroom.html: login
-    dashboard.html: user
-    gradeScale.html: user
-    studentCreate.html: user
-    studentEdit.html: user
-    studentShow.html: user
